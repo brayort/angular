@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h3>Listado de nombres</h3>
+
+      <li *ngFor="let nombre of nombres; let i = index">
+        {{nombre}}
+      </li>
+
+      <br>
+      <button (click)="borrarNombre()" type="button" class="btn btn-secondary">Borrar</button>
+    </div>
+
+    <div class="col-md-6">
+      <div *ngIf="nombresBorrados.length >= 1; else noBorrado">
+        <h3>Borrados</h3>
+        <ul class="list-group">
+          <li *ngFor="let nombreBorrado of nombresBorrados" class="list-group-item">{{nombreBorrado}}</li>
+        </ul>
+      </div>
+    </div>
+
+    <ng-template #noBorrado>
+      <p>No hay borrado nada</p>
+    </ng-template>
+
+  </div>
+</div>
